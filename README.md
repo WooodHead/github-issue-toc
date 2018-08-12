@@ -1,5 +1,5 @@
-> # Find the answer faster 
-:+1:
+> # Find the answer faster :+1:
+
 
 ![](screenshots/screenshort1.png)
 
