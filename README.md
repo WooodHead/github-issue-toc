@@ -1,4 +1,5 @@
-> # Find the answer faster
+> # Find the answer faster 
+:+1:
 
 ![](screenshots/screenshort1.png)
 
@@ -8,7 +9,7 @@ Install from Chrome Web Store
 
 OR
 
-Load app folder in Chrome extensions page( chrome://extensions/ )
+Download the source code and load *app* folder in Chrome extensions page( chrome://extensions/ )
 
 ![](screenshots/load-unpack.png)
 
@@ -27,3 +28,7 @@ npm install -g serve
 serve ./test-page
 
 ```
+
+# Star this project
+![](screenshots/star.gif)
+
