@@ -1,0 +1,13 @@
+body {
+  width: 200px;
+}
+
+.repo-link {
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.repo-link h1 {
+  font-size: 12px;
+}
