@@ -1,7 +1,7 @@
 > # Find the answer faster :+1:
 
 
-![](screenshots/screenshort1.png)
+![](screenshots/screenshot1.png)
 
 # Install
 
