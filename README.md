@@ -29,6 +29,9 @@ serve ./test-page
 
 ```
 
+# TODO
+[ ] add support for firefox and other browsers
+
 # Star this project
 ![](screenshots/star.gif)
 
