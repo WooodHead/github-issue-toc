@@ -9,7 +9,7 @@ Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/github
 
 OR
 
-Download the source code and load *app* folder in Chrome extensions page( chrome://extensions/ )
+Download the source code and load *app* folder in Chrome extensions page( [chrome://extensions](chrome://extensions) )
 
 ![](screenshots/load-unpack.png)
 
