@@ -26,7 +26,7 @@ function getEmojiButtons(item) {
       emoji,
       score,
       icon,
-      alias
+      alias,
     };
   }).filter(item => item.emoji);
   return buttonsJson;
@@ -72,7 +72,7 @@ function getCommentsJson() {
       datetime,
       buttons,
       scores,
-      eyes
+      eyes,
     };
   });
 }
@@ -88,7 +88,7 @@ function sortByScoreEyes(anwsers) {
     .map((item, rank, arr) => {
       return {
         ...item,
-        rank: rank
+        rank: rank,
       };
     });
 }

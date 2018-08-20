@@ -6,7 +6,7 @@
 
 const LIVERELOAD_HOST = 'localhost:';
 const LIVERELOAD_PORT = 35729;
-const connection = new WebSocket('ws://' + LIVERELOAD_HOST + LIVERELOAD_PORT + '/livereload');
+const connection = new WebSocket(`ws://${LIVERELOAD_HOST}${LIVERELOAD_PORT}/livereload`);
 
 var lastReload = false;
 
@@ -27,7 +27,7 @@ connection.onmessage = e => {
         // don't reload more than once a minute
         chrome.runtime.reload();
         chrome.developerPrivate.reload(chrome.runtime.id,
-          { failQuietly: true });
+          { failQuietly: true, });
       }
     }
   }
