@@ -1,4 +1,7 @@
 'use strict';
+const debug = (name, value) => {
+  // console.log(name, value);
+};
 
 const positives = [
   '+1',
@@ -75,7 +78,7 @@ function getCommentsJson() {
 }
 
 function sortByScoreEyes(anwsers) {
-  return anwsers.slice(1).sort((a, b) => {
+  return anwsers.sort((a, b) => {
     if (a.scores !== b.scores) {
       return -(a.scores - b.scores);
     } else {
@@ -116,6 +119,8 @@ const getListItem = (item, className) => {
 
 (function () {
   let comments = getCommentsJson().filter(item => item.author);
+  debug('comments', comments);
+
   if (comments.length === 0) {
     return;
   }
@@ -123,6 +128,8 @@ const getListItem = (item, className) => {
   let answers = sortByScoreEyes(comments.slice(1));
 
   const sidebar = document.getElementById('discussion_bucket');
+  // const sidebar = document.getElementsByClassName('discussion-sidebar')[0];
+
   const tocContainer = document.createElement('div');
   tocContainer.id = 'github-issue-toc';
 
@@ -153,4 +160,8 @@ const getListItem = (item, className) => {
   tocContainer.appendChild(tocHeader);
   tocContainer.appendChild(tocBody);
   sidebar.appendChild(tocContainer);
+
+  // const firstChild = sidebar.firstChild;
+  // console.log('firstChild', firstChild);
+  // sidebar.insertBefore(tocContainer, firstChild);
 })();

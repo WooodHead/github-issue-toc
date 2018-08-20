@@ -78,11 +78,12 @@ body {
 
 #github-issue-toc-body #toc-answers {
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #github-issue-toc-body a {
-  padding: 5px 5px 8px;
+  padding: 5px 8px 5px 5px;
   color: #586069;
   font-weight: 600;
   font-size: 14px !important;
