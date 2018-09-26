@@ -5,7 +5,8 @@
 
 # Install
 
-Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/github-issue-toc/ilbogmmcemabaedfhhfiodlfcejmbnge)
+## Chrome Web Store
+https://chrome.google.com/webstore/detail/github-issue-toc/ilbogmmcemabaedfhhfiodlfcejmbnge
 
 # Development
 
