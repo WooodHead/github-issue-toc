@@ -47,7 +47,7 @@
     "all_frames": false
   }],
   "web_accessible_resources": [
-    "images/icon-48.png"
+    "images/icon.png"
   ],
   "homepage_url": "https://github.com/wooodhead/github-issue-toc"
 }
