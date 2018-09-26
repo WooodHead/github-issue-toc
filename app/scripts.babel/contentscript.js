@@ -1,4 +1,5 @@
 'use strict';
+
 const debug = (name, value) => {
   // console.log(name, value);
 };
@@ -117,7 +118,12 @@ const getListItem = (item, className) => {
   return li;
 };
 
-(function () {
+const isExtLoaded = () => {
+  const oldEle = document.getElementById('github-issue-toc');
+  return !!oldEle;
+};
+
+let start = () => {
   let comments = getCommentsJson().filter(item => item.author);
   debug('comments', comments);
 
@@ -128,7 +134,6 @@ const getListItem = (item, className) => {
   let answers = sortByScoreEyes(comments.slice(1));
 
   const sidebar = document.getElementById('discussion_bucket');
-  // const sidebar = document.getElementsByClassName('discussion-sidebar')[0];
 
   const tocContainer = document.createElement('div');
   tocContainer.id = 'github-issue-toc';
@@ -159,9 +164,37 @@ const getListItem = (item, className) => {
 
   tocContainer.appendChild(tocHeader);
   tocContainer.appendChild(tocBody);
-  sidebar.appendChild(tocContainer);
 
-  // const firstChild = sidebar.firstChild;
-  // console.log('firstChild', firstChild);
-  // sidebar.insertBefore(tocContainer, firstChild);
-})();
+  const old = document.getElementById('github-issue-toc');
+  if (old) {
+    sidebar.removeChild(old);
+  }
+
+  sidebar.appendChild(tocContainer);
+};
+
+const validateUrl = () => {
+  var path = window.location.pathname;
+  const arr = path.split('/');
+  const isIssueNo = !!parseInt(arr.pop(), 10);
+  const page = arr.pop();
+  const isIssues = page === 'issues' || page === 'pull';
+  return isIssueNo && isIssues;
+};
+
+const loop = () => {
+  setInterval(function () {
+    const isValid = validateUrl();
+    if (isValid && !isExtLoaded()) {
+      start();
+    }
+  }, 2000);
+};
+
+window.onload = () => {
+  const isValid = validateUrl();
+  if (isValid) {
+    start();
+  }
+  loop();
+};

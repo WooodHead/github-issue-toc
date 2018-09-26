@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "0.0.4",
+  "version": "0.0.3",
   "manifest_version": 2,
   "description": "__MSG_appDescription__",
   "icons": {
@@ -21,14 +21,20 @@
     }
   },
   "permissions": [
-    "https://github.com/*/*/issues/*",
-    "http://github.com/*/*/issues/*",
+    "https://github.com/*",
+    "http://github.com/*",
     "background"
   ],
   "content_scripts": [{
     "matches": [
       "https://github.com/*/*/issues/*",
+      "https://github.com/*/*/issues",
       "http://github.com/*/*/issues/*",
+      "http://github.com/*/*/issues",
+      "https://github.com/*/*/pull/*",
+      "https://github.com/*/*/pulls",
+      "http://github.com/*/*/pull/*",
+      "http://github.com/*/*/pulls",
       "http://127.0.0.1:5000/*"
     ],
     "js": [
