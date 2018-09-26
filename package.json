@@ -7,7 +7,7 @@
   "scripts": {
     "start": "gulp watch",
     "build": "gulp build",
-    "debploy":"gulp package"
+    "debploy": "gulp package"
   },
   "devDependencies": {
     "babel-core": "^6.7.2",

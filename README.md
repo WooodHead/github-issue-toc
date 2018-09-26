@@ -7,18 +7,17 @@
 
 Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/github-issue-toc/ilbogmmcemabaedfhhfiodlfcejmbnge)
 
-OR
-
-Download the source code and load *app* folder in Chrome extensions page( [chrome://extensions](chrome://extensions) )
-
-![](screenshots/load-unpack.png)
-
 # Development
 
 ```bash
 npm install
 npm run start
 ```
+
+
+Then load *app* folder in Chrome extensions page( [chrome://extensions](chrome://extensions) )
+
+![](screenshots/load-unpack.png)
 
 
 # Use test-page for faster debugging
