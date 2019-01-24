@@ -9,8 +9,8 @@ body {
   background-color: #fff;
   position: relative;
   position: sticky;
-  top: 10px;
-  height: calc(100vh - 20px);
+  top: 70px;
+  height: calc(100vh - 90px);
   overflow: hidden;
 }
 
