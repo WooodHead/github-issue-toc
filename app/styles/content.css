@@ -3,8 +3,6 @@ body {
 }
 
 #github-issue-toc {
-  width: 200px;
-  float: right;
   margin-top: 20px;
   background-color: #fff;
   position: relative;
@@ -42,7 +40,7 @@ body {
   right: 5px;
   border: 1px solid #d1d5da;
   border-radius: 3px;
-  background: #FFF;
+  background: #fff;
   z-index: 500;
   box-shadow: 0px 1px 15px 1px rgba(0, 0, 0, 0.2);
 }

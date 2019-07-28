@@ -133,7 +133,7 @@ let start = () => {
   const ask = comments[0];
   let answers = sortByScoreEyes(comments.slice(1));
 
-  const sidebar = document.getElementById('discussion_bucket');
+  const sidebar = document.getElementsByClassName('discussion-sidebar')[0];
 
   const tocContainer = document.createElement('div');
   tocContainer.id = 'github-issue-toc';
