@@ -128,7 +128,6 @@ const isExtLoaded = () => {
 };
 
 let start = () => {
-  console.log('start');
   let comments = getCommentsJson().filter(item => item.author);
   debug('comments', comments);
 
@@ -141,7 +140,6 @@ let start = () => {
   const sidebar =
     document.getElementById('partial-discussion-sidebar') ||
     document.getElementsByClassName('discussion-sidebar')[0];
-  console.log('sidebar', sidebar);
   
   const tocContainer = document.createElement('div');
   tocContainer.id = 'github-issue-toc';
