@@ -4,32 +4,29 @@ const debug = (name, value) => {
   // console.log(name, value);
 };
 
-const positives = [
-  '+1',
-  'tada',
-  'heart',
-  'smile',
-];
+const positives = ['+1', 'tada', 'heart', 'smile',];
 
 function getEmojiButtons(item) {
   const buttonsEle = item.getElementsByClassName('reaction-summary-item');
 
-  const buttonsJson = Array.prototype.map.call(buttonsEle, item => {
-    const emoji = item.getElementsByTagName('g-emoji')[0];
-    if (!emoji) {
-      return {};
-    }
-    const alias = emoji.getAttribute('alias');
-    const score = item.lastChild.textContent.trim() || 0;
-    const icon = emoji.textContent.trim();
+  const buttonsJson = Array.prototype.map
+    .call(buttonsEle, item => {
+      const emoji = item.getElementsByTagName('g-emoji')[0];
+      if (!emoji) {
+        return {};
+      }
+      const alias = emoji.getAttribute('alias');
+      const score = item.lastChild.textContent.trim() || 0;
+      const icon = emoji.textContent.trim();
 
-    return {
-      emoji,
-      score,
-      icon,
-      alias,
-    };
-  }).filter(item => item.emoji);
+      return {
+        emoji,
+        score,
+        icon,
+        alias,
+      };
+    })
+    .filter(item => item.emoji);
   return buttonsJson;
 }
 
@@ -53,7 +50,8 @@ function getCommentsJson() {
 
     const buttons = getEmojiButtons(item);
 
-    const scores = buttons.filter(item => positives.includes(item.alias))
+    const scores = buttons
+      .filter(item => positives.includes(item.alias))
       .reduce((prev, cur) => {
         return +cur.score + prev;
       }, 0);
@@ -79,13 +77,14 @@ function getCommentsJson() {
 }
 
 function sortByScoreEyes(anwsers) {
-  return anwsers.sort((a, b) => {
-    if (a.scores !== b.scores) {
-      return -(a.scores - b.scores);
-    } else {
-      return -(a.eyes - b.eyes);
-    }
-  })
+  return anwsers
+    .sort((a, b) => {
+      if (a.scores !== b.scores) {
+        return -(a.scores - b.scores);
+      } else {
+        return -(a.eyes - b.eyes);
+      }
+    })
     .map((item, rank, arr) => {
       return {
         ...item,
@@ -97,16 +96,21 @@ function sortByScoreEyes(anwsers) {
 const getListItem = (item, className) => {
   const li = document.createElement('li');
 
-  const icons = item.buttons.map((e) => {
-    return e.icon + e.score;
-  }).join(' ');
+  const icons = item.buttons
+    .map(e => {
+      return e.icon + e.score;
+    })
+    .join(' ');
 
-  const roleHtml = item.role ?
-    `<span class="toc-divider"></span>
-    <div title="${item.role}" class="toc-role">${item.role.slice(0, 1)}</div>` : '';
+  const roleHtml = item.role
+    ? `<span class="toc-divider"></span>
+    <div title="${item.role}" class="toc-role">${item.role.slice(0, 1)}</div>`
+    : '';
 
   li.innerHTML = `
-  <a class="${className}" title="${item.author}" href="${item.anchor}" data-offset="${item.offsetTop}">
+  <a class="${className}" title="${item.author}" href="${item.anchor}" data-offset="${
+  item.offsetTop
+}">
     <img class="avatar" width="32" height="32" src="${item.avatar}">
     <div class="toc-detail">
       <div class="toc-emoji">${icons}</div>
@@ -124,6 +128,7 @@ const isExtLoaded = () => {
 };
 
 let start = () => {
+  console.log('start');
   let comments = getCommentsJson().filter(item => item.author);
   debug('comments', comments);
 
@@ -133,8 +138,11 @@ let start = () => {
   const ask = comments[0];
   let answers = sortByScoreEyes(comments.slice(1));
 
-  const sidebar = document.getElementsByClassName('discussion-sidebar')[0];
-
+  const sidebar =
+    document.getElementById('partial-discussion-sidebar') ||
+    document.getElementsByClassName('discussion-sidebar')[0];
+  console.log('sidebar', sidebar);
+  
   const tocContainer = document.createElement('div');
   tocContainer.id = 'github-issue-toc';
 
@@ -155,7 +163,7 @@ let start = () => {
   const tocAnwsers = document.createElement('ul');
   tocAnwsers.id = 'toc-answers';
 
-  answers.forEach((item) => {
+  answers.forEach(item => {
     const li = getListItem(item);
     tocAnwsers.appendChild(li);
   });
@@ -183,7 +191,7 @@ const validateUrl = () => {
 };
 
 const loop = () => {
-  setInterval(function () {
+  setInterval(function() {
     const isValid = validateUrl();
     if (isValid && !isExtLoaded()) {
       start();
