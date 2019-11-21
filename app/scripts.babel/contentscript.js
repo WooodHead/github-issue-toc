@@ -1,7 +1,7 @@
 'use strict';
 
 const debug = (name, value) => {
-  console.log(name, value);
+  // console.log(name, value);
 };
 
 const positives = ['+1', 'tada', 'heart', 'smile',];
@@ -128,9 +128,7 @@ const isExtLoaded = () => {
 };
 
 let start = () => {
-  console.log('start');
   let comments = getCommentsJson().filter(item => item.author);
-  console.log('comments', comments);
   debug('comments', comments);
 
   if (comments.length === 0) {
@@ -143,7 +141,6 @@ let start = () => {
     document.getElementById('partial-discussion-sidebar') ||
     document.getElementsByClassName('discussion-sidebar')[0];
   
-  console.log('sidebar', sidebar);
   const tocContainer = document.createElement('div');
   tocContainer.id = 'github-issue-toc';
 
