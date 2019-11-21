@@ -1,7 +1,7 @@
 'use strict';
 
 const debug = (name, value) => {
-  // console.log(name, value);
+  console.log(name, value);
 };
 
 const positives = ['+1', 'tada', 'heart', 'smile',];
@@ -31,7 +31,7 @@ function getEmojiButtons(item) {
 }
 
 function getCommentsJson() {
-  const comments = document.getElementsByClassName('timeline-comment-wrapper');
+  const comments = document.getElementsByClassName('js-comment-container');
   return Array.prototype.map.call(comments, (item, index) => {
     const offsetTop = item.offsetTop;
     const authorEle = item.querySelector('.author');
@@ -40,7 +40,7 @@ function getCommentsJson() {
     }
     const author = authorEle.textContent;
     const avatar = item.querySelector('.avatar').getAttribute('src');
-    const anchor = item.querySelector('.timestamp').getAttribute('href');
+    const anchor = item.querySelector('.js-timestamp').getAttribute('href');
     const datetime = item.querySelector('relative-time').getAttribute('datetime');
     const roleEle = item.querySelector('.timeline-comment-label');
     let role = '';
@@ -128,7 +128,9 @@ const isExtLoaded = () => {
 };
 
 let start = () => {
+  console.log('start');
   let comments = getCommentsJson().filter(item => item.author);
+  console.log('comments', comments);
   debug('comments', comments);
 
   if (comments.length === 0) {
@@ -141,6 +143,7 @@ let start = () => {
     document.getElementById('partial-discussion-sidebar') ||
     document.getElementsByClassName('discussion-sidebar')[0];
   
+  console.log('sidebar', sidebar);
   const tocContainer = document.createElement('div');
   tocContainer.id = 'github-issue-toc';
 
