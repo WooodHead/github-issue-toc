@@ -8,6 +8,12 @@
 ## Chrome Web Store
 https://chrome.google.com/webstore/detail/github-issue-toc/ilbogmmcemabaedfhhfiodlfcejmbnge
 
+## Install from dist folder
+1. Open this path ```chrome://extensions/``` in Chrome
+2. Enable ```Developer mode```
+3. Click button ```Load unpacked```
+4. Select ```dist``` folder
+
 # Development
 
 ```bash
