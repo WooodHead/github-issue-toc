@@ -128,6 +128,8 @@ body {
   border-radius: 2px;
   padding: 1px 2px;
   font-weight: 400;
+  width: 17px;
+  text-align: center;
 }
 
 #github-issue-toc-body .toc-divider {

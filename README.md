@@ -35,3 +35,5 @@ serve ./test-page
 # Star this project
 ![](screenshots/star.gif)
 
+# LISCENCE
+MIT

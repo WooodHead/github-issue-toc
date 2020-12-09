@@ -6,7 +6,7 @@ const debug = (name, value) => {
 
 const positives = ['+1', 'tada', 'heart', 'smile',];
 
-function getEmojiButtons(item) {
+function getEmojiButtons (item) {
   const buttonsEle = item.getElementsByClassName('reaction-summary-item');
 
   const buttonsJson = Array.prototype.map
@@ -30,7 +30,7 @@ function getEmojiButtons(item) {
   return buttonsJson;
 }
 
-function getCommentsJson() {
+function getCommentsJson () {
   const comments = document.getElementsByClassName('js-comment-container');
   return Array.prototype.map.call(comments, (item, index) => {
     const offsetTop = item.offsetTop;
@@ -76,7 +76,7 @@ function getCommentsJson() {
   });
 }
 
-function sortByScoreEyes(anwsers) {
+function sortByScoreEyes (anwsers) {
   return anwsers
     .sort((a, b) => {
       if (a.scores !== b.scores) {
@@ -95,10 +95,11 @@ function sortByScoreEyes(anwsers) {
 
 const getListItem = (item, className) => {
   const li = document.createElement('li');
+  console.log('li', li);
 
   const icons = item.buttons
     .map(e => {
-      return e.icon + e.score;
+      return `${e.icon} ${e.score}`;
     })
     .join(' ');
 
@@ -108,8 +109,7 @@ const getListItem = (item, className) => {
     : '';
 
   li.innerHTML = `
-  <a class="${className}" title="${item.author}" href="${item.anchor}" data-offset="${
-  item.offsetTop
+  <a class="${className}" title="${item.author}" href="${item.anchor}" data-offset="${item.offsetTop
 }">
     <img class="avatar" width="32" height="32" src="${item.avatar}">
     <div class="toc-detail">
@@ -140,7 +140,7 @@ let start = () => {
   const sidebar =
     document.getElementById('partial-discussion-sidebar') ||
     document.getElementsByClassName('discussion-sidebar')[0];
-  
+
   const tocContainer = document.createElement('div');
   tocContainer.id = 'github-issue-toc';
 
@@ -189,7 +189,7 @@ const validateUrl = () => {
 };
 
 const loop = () => {
-  setInterval(function() {
+  setInterval(function () {
     const isValid = validateUrl();
     if (isValid && !isExtLoaded()) {
       start();
@@ -198,6 +198,7 @@ const loop = () => {
 };
 
 window.onload = () => {
+  console.log('onload');
   const isValid = validateUrl();
   if (isValid) {
     start();
