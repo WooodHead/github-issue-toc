@@ -95,7 +95,6 @@ function sortByScoreEyes (anwsers) {
 
 const getListItem = (item, className) => {
   const li = document.createElement('li');
-  console.log('li', li);
 
   const icons = item.buttons
     .map(e => {
@@ -198,7 +197,6 @@ const loop = () => {
 };
 
 window.onload = () => {
-  console.log('onload');
   const isValid = validateUrl();
   if (isValid) {
     start();
